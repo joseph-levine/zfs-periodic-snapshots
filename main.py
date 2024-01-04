@@ -29,9 +29,9 @@ def rotate(maximum: int, unit: str, promote_from: str = None, ):
 if __name__ == '__main__':
     now = datetime.now(timezone.utc)
     cal = now.isocalendar()
-    if cal.week % 4 == 0:  # every four weeks
+    if cal.week % 4 == 1:  # every four weeks
         rotate(GAMMA_MAX, 'gamma', f'{BETA_MAX}beta')
-    elif cal.weekday % 7 == 0:  # every seven days
+    elif cal.weekday == 1:  # every seven days
         rotate(BETA_MAX, 'beta', f'{ALPHA_MAX}alpha')
     else:  # every day
         rotate(ALPHA_MAX, 'alpha')
